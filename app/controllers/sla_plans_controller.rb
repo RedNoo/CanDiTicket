@@ -1,0 +1,3 @@
+class SlaPlansController < ApplicationController
+
+end
