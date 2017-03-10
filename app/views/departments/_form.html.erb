@@ -1,0 +1,17 @@
+<% if @department.errors.any? %>
+<ul>
+<% @department.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>
+<%= form_for @department do |f| %>
+  <p>
+<%= f.label :title %><br/>
+<%= f.text_field :title %>
+  </p>
+  <p>
+  <%= f.submit %>
+</p>
+<% end %>
+<%=link_to "Back to department list", departments_path %>

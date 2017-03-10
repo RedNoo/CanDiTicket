@@ -1,4 +1,6 @@
 <h1>Selected Department</h1>
 <p>
-Title : <%=@article.title%>
+Title : <%=@department.title%>
 </p>
+<%=link_to "Edit", edit_department_path(@department) %> | 
+<%=link_to "Back to department list", departments_path %>

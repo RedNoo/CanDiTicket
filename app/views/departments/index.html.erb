@@ -1,0 +1,25 @@
+<h1>Listing all departments</h2>
+  <p>
+  <%=link_to "Create new department", new_department_path %>
+</p>
+  <table>
+    <tr>
+      <td>
+        Title
+      </td>
+
+    </tr>
+    <%@departments.each do |department| %>
+    <tr>
+      <td>
+        <%=department.title%>
+      </td>
+      <td>
+        <%=link_to "Edit", edit_department_path(department) %>
+        <%=link_to "Show", department_path(department) %>
+          <%=link_to "Delete", department_path(department), method: :delete, data: {confirm: "are you sure"} %>
+      </td>
+
+    </tr>
+      <% end %>
+  </table>

@@ -1,0 +1,30 @@
+<h1>Listing all members</h2>
+  <p>
+  <%=link_to "Create new member", new_member_path %>
+</p>
+  <table>
+    <tr>
+      <td>
+        Title
+      </td>
+      <td>
+        Password
+      </td>
+    </tr>
+    <%@members.each do |member| %>
+    <tr>
+      <td>
+        <%=member.email%>
+      </td>
+      <td>
+        <%=member.password%>
+      </td>
+      <td>
+        <%=link_to "Edit", edit_member_path(member) %>
+        <%=link_to "Show", member_path(member) %>
+          <%=link_to "Delete", member_path(member), method: :delete, data: {confirm: "are you sure"} %>
+      </td>
+
+    </tr>
+      <% end %>
+  </table>

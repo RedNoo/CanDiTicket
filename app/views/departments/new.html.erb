@@ -1,17 +1,2 @@
 <h1>Create a department</h1>
-<% if @department.errors.any? %>
-<ul>
-<% @department.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
-</ul>
-<% end %>
-<%= form_for @department do |f| %>
-  <p>
-<%= f.label :title %><br/>
-<%= f.text_field :title %>
-  </p>
-  <p>
-  <%= f.submit %>
-</p>
-<% end %>
+<%= render 'form' %>
