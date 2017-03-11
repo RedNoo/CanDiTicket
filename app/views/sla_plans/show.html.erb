@@ -1,0 +1,9 @@
+<h1>Selected Department</h1>
+<p>
+Title : <%=@sla_plan.title%>
+</p>
+<p>
+Response Time : <%=@sla_plan.responsetime%>
+</p>
+<%=link_to "Edit", edit_sla_plan_path(@sla_plan) %> |
+<%=link_to "Back to sla_plan list", sla_plans_path %>

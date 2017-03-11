@@ -1,0 +1,17 @@
+<% if @priority.errors.any? %>
+<ul>
+<% @priority.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>
+<%= form_for @priority do |f| %>
+  <p>
+<%= f.label :title %><br/>
+<%= f.text_field :title %>
+  </p>
+  <p>
+  <%= f.submit %>
+</p>
+<% end %>
+<%=link_to "Back to priority list", priorities_path %>

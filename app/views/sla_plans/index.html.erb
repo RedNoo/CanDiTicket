@@ -1,0 +1,30 @@
+<h1>Listing all sla_plans</h2>
+  <p>
+  <%=link_to "Create new sla_plan", new_sla_plan_path %>
+</p>
+  <table>
+    <tr>
+      <td>
+        Title
+      </td>
+      <td>
+        Response Time
+      </td>
+    </tr>
+    <%@sla_plans.each do |sla_plan| %>
+    <tr>
+      <td>
+        <%=sla_plan.title%>
+      </td>
+      <td>
+        <%=sla_plan.responsetime%>
+      </td>
+      <td>
+        <%=link_to "Edit", edit_sla_plan_path(sla_plan) %>
+        <%=link_to "Show", sla_plan_path(sla_plan) %>
+          <%=link_to "Delete", sla_plan_path(sla_plan), method: :delete, data: {confirm: "are you sure"} %>
+      </td>
+
+    </tr>
+      <% end %>
+  </table>

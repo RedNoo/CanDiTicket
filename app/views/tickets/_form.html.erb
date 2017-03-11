@@ -1,0 +1,21 @@
+<% if @ticket.errors.any? %>
+<ul>
+<% @ticket.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>
+<%= form_for @ticket do |f| %>
+  <p>
+<%= f.label :subject %><br/>
+<%= f.text_field :subject %>
+  </p>
+  <p>
+<%= f.label :description %><br/>
+<%= f.text_area :description %>
+  </p>
+  <p>
+  <%= f.submit %>
+</p>
+<% end %>
+<%=link_to "Back to ticket list", tickets_path %>

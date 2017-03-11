@@ -1,0 +1,17 @@
+<% if @status.errors.any? %>
+<ul>
+<% @status.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>
+<%= form_for @status do |f| %>
+  <p>
+<%= f.label :title %><br/>
+<%= f.text_field :title %>
+  </p>
+  <p>
+  <%= f.submit %>
+</p>
+<% end %>
+<%=link_to "Back to status list", statuses_path %>
