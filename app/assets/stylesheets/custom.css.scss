@@ -1,2 +1,16 @@
+$navbar-border-radius: 0;
+
 @import "bootstrap-sprockets";
+
+// Import cerulean variables
+@import "bootswatch/flatly/variables";
+
+// Then bootstrap itself
 @import "bootstrap";
+
+// And finally bootswatch style itself
+@import "bootswatch/flatly/bootswatch";
+
+// Whatever application styles you have go last
+
+.page_container{margin: 20px;}

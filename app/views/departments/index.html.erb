@@ -1,14 +1,22 @@
-<h1>Listing all departments</h2>
-  <p>
-  <%=link_to "Create new department", new_department_path %>
-</p>
-  <table>
-    <tr>
-      <td>
-        Title
-      </td>
+<div class="page_container">
 
+<h1>All Departments</h2>
+    <div class="col-lg-6 col-md-6">
+  <p>
+  <%=link_to "Create new Department", new_department_path %>
+</p>
+  <table class="table table-striped table-hover ">
+<thead>
+    <tr>
+      <th>
+        Title
+      </th>
+      <th>
+        Actions
+      </th>
     </tr>
+  </thead>
+   <tbody>
     <%@departments.each do |department| %>
     <tr>
       <td>
@@ -22,4 +30,7 @@
 
     </tr>
       <% end %>
+    </tbody>
   </table>
+</div>
+</div>

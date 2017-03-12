@@ -1,16 +1,24 @@
-<h1>Listing all sla_plans</h2>
+<div class="page_container">
+<h1>All Sla Plans</h2>
+  <div class="col-lg-6 col-md-6">
   <p>
-  <%=link_to "Create new sla_plan", new_sla_plan_path %>
+  <%=link_to "Create new sla plan", new_sla_plan_path %>
 </p>
-  <table>
+  <table  class="table table-striped table-hover ">
+<thead>
     <tr>
-      <td>
+      <th>
         Title
-      </td>
-      <td>
+      </th>
+      <th>
         Response Time
-      </td>
+      </th>
+      <th>
+        Actions
+      </th>
     </tr>
+  </thead>
+  <tbody>
     <%@sla_plans.each do |sla_plan| %>
     <tr>
       <td>
@@ -27,4 +35,7 @@
 
     </tr>
       <% end %>
+    </tbody>
   </table>
+</div>
+</div>

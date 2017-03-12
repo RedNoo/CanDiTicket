@@ -1,14 +1,21 @@
-<h1>Listing all tickets</h2>
+<div class="page_container">
+<h1>All tickets</h2>
+  <div class="col-lg-6 col-md-6">
   <p>
   <%=link_to "Create new ticket", new_ticket_path %>
 </p>
-  <table>
+  <table  class="table table-striped table-hover ">
+    <thead>
     <tr>
-      <td>
+      <th>
         Title
-      </td>
-
+      </th>
+      <th>
+        Actions
+      </th>
     </tr>
+  </thead>
+  <tbody>
     <%@tickets.each do |ticket| %>
     <tr>
       <td>
@@ -22,4 +29,7 @@
 
     </tr>
       <% end %>
+    </tbody>
   </table>
+  <div>
+</div>

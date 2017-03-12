@@ -1,3 +1,4 @@
+<div class="col-lg-6 col-md-6">
 <% if @sla_plan.errors.any? %>
 <ul>
 <% @sla_plan.errors.full_messages.each do |msg| %>
@@ -6,16 +7,17 @@
 </ul>
 <% end %>
 <%= form_for @sla_plan do |f| %>
-  <p>
+  <div class="form-group">
 <%= f.label :title %><br/>
-<%= f.text_field :title %>
-  </p>
-  <p>
+<%= f.text_field :title , class: "form-control"%>
+  </div>
+    <div class="form-group">
 <%= f.label :responsetime %><br/>
-<%= f.text_field :responsetime %>
-  </p>
-  <p>
+<%= f.text_field :responsetime, class: "form-control" %>
+  </div>
+    <div class="form-group">
   <%= f.submit %>
-</p>
+</div>
 <% end %>
 <%=link_to "Back to sla_plan list", sla_plans_path %>
+</div>
