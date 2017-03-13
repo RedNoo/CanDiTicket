@@ -1,23 +1,41 @@
-<div class="col-lg-6 col-md-6">
-<% if @ticket.errors.any? %>
-<ul>
-<% @ticket.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
-</ul>
-<% end %>
-<%= form_for @ticket do |f| %>
-    <div class="form-group">
-<%= f.label :subject %><br/>
-<%= f.text_field :subject, class: "form-control" %>
+<div class="col-lg-6 col-md-6 col-xs-6">
+  <div class="row">
+    <div class="col-xs-12">
+<%= render "shared/errors", obj: @ticket %>
+<%= form_for(@ticket, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+  <div class="form-group">
+    <div class="col-xs-2">
+        <div class="control-label">
+            <%= f.label :subject %>
+        </div>
+    </div>
+    <div class="col-xs-10">
+      <%= f.text_field :subject, class: "form-control", placeholder: "subject", autofocus: true %>
+    </div>
   </div>
-    <div class="form-group">
-<%= f.label :description %><br/>
-<%= f.text_area :description , class: "form-control"%>
+
+  <div class="form-group">
+    <div class="col-xs-2">
+        <div class="control-label">
+            <%= f.label :description %>
+        </div>
+    </div>
+    <div class="col-xs-10">
+      <%= f.text_area :description, class: "form-control", placeholder: "description", autofocus: true %>
+    </div>
+
   </div>
-    <div class="form-group">
-  <%= f.submit %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit  class: "btn btn-default"%>
+    </div>
+  </div>
+
+<% end %>
+<div class="text-right">
+<%=link_to "Back to Department list", tickets_path %>
 </div>
-<% end %>
-<%=link_to "Back to ticket list", tickets_path %>
+</div>
+</div>
 </div>
