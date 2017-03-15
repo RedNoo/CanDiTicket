@@ -14,11 +14,13 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :departments
-  resources :members
+  resources :members, except: [:new]
   resources :priorities
   resources :sla_plans
   resources :statuses
   resources :tickets
+
+  get 'signup' => 'members#new'
 
   # Example resource route with options:
   #   resources :products do

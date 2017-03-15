@@ -36,7 +36,7 @@ class MembersController < ApplicationController
   end
 
 def update
-  @member = Member.find(params[:id]) @member.update(member_params)
+  if @member.update(member_params)
     flash[:notice] = "Member was successfully updated."
     redirect_to member_path(@member)
   else

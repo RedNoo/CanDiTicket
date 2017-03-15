@@ -6,6 +6,7 @@ class CreateTickets < ActiveRecord::Migration
 
       t.timestamps :created_at
       t.timestamps :updated_at
+      
     end
   end
 end

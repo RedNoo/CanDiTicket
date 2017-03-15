@@ -20,6 +20,7 @@
     <tr>
       <td>
         <%=ticket.subject%>
+      <small>Created by:  <%=ticket.member.email if ticket.member%>, <%= time_ago_in_words(ticket_createdat)%> </small>
       </td>
       <td>
         <%=link_to "Edit", edit_ticket_path(ticket) %>
