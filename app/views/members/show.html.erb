@@ -1,9 +1,10 @@
 <h1>Selected Member</h1>
 <p>
-Title : <%=@member.email%>
+  <%= gravatar_for @member, size: 150%>
 </p>
 <p>
-Title : <%=@member.password%>
+Email : <%=@member.email%>
 </p>
+
 <%=link_to "Edit", edit_member_path(@member) %> |
 <%=link_to "Back to member list", members_path %>

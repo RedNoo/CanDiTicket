@@ -21,13 +21,13 @@
         </div>
     </div>
     <div class="col-xs-10">
-      <%= f.text_field :password, class: "form-control", placeholder: "password", autofocus: true %>
+      <%= f.text_field :password, class: "form-control", placeholder: "password" %>
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-    <%= f.submit  class: "btn btn-default"%>
+    <%= f.submit (@member.new_record? ? "Sign Up" : "Update Member"), class: "btn btn-default"%>
     </div>
   </div>
 
