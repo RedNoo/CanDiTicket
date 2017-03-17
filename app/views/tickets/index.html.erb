@@ -4,33 +4,8 @@
   <p>
   <%=link_to "Create new ticket", new_ticket_path %>
 </p>
-  <table  class="table table-striped table-hover ">
-    <thead>
-    <tr>
-      <th>
-        Title
-      </th>
-      <th>
-        Actions
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <%@tickets.each do |ticket| %>
-    <tr>
-      <td>
-        <%=ticket.subject%>
-      <small>Created by:  <%=ticket.member.email if ticket.member%>, <%= time_ago_in_words(ticket_createdat)%> </small>
-      </td>
-      <td>
-        <%=link_to "Edit", edit_ticket_path(ticket) %>
-        <%=link_to "Show", ticket_path(ticket) %>
-          <%=link_to "Delete", ticket_path(ticket), method: :delete, data: {confirm: "are you sure"} %>
-      </td>
 
-    </tr>
-      <% end %>
-    </tbody>
-  </table>
+
+<%= render 'ticket', obj: @members %>
   <div>
 </div>

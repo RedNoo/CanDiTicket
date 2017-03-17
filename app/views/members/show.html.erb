@@ -1,6 +1,7 @@
+<div class="page_container">
 <h1>Selected Member</h1>
 <p>
-  <%= gravatar_for @member, size: 150%>
+  <%= gravatar_for @member, size: 80%>
 </p>
 <p>
 Email : <%=@member.email%>
@@ -8,3 +9,8 @@ Email : <%=@member.email%>
 
 <%=link_to "Edit", edit_member_path(@member) %> |
 <%=link_to "Back to member list", members_path %>
+
+<h2>Member's Tickets</h2>
+<%= render 'tickets/ticket', obj: @member.tickets %>
+
+</div>

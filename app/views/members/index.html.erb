@@ -1,11 +1,13 @@
+<div class="page_container">
 <h1>Listing all members</h2>
+    <div class="col-lg-6 col-md-6">
   <p>
-  <%=link_to "Create new member", new_member_path %>
+  <%=link_to "Create new member", signup_path %>
 </p>
-  <table>
+  <table class="table table-striped table-hover ">
     <tr>
       <td>
-        Title
+        Email
       </td>
       <td>
         Password
@@ -16,9 +18,7 @@
       <td>
         <%=member.email%>
       </td>
-      <td>
-        <%=member.password%>
-      </td>
+
       <td>
         <%=link_to "Edit", edit_member_path(member) %>
         <%=link_to "Show", member_path(member) %>
@@ -28,3 +28,5 @@
     </tr>
       <% end %>
   </table>
+</div>
+</div>
