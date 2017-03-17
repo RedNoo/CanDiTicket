@@ -4,8 +4,12 @@
   <p>
   <%=link_to "Create new ticket", new_ticket_path %>
 </p>
-
-
-<%= render 'ticket', obj: @members %>
+<p>
+<%= will_paginate%>
+</p>
+<%= render 'ticket', obj: @tickets %>
+<p>
+<%= will_paginate%>
+</p>
   <div>
 </div>

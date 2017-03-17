@@ -3,13 +3,13 @@ $navbar-border-radius: 0;
 @import "bootstrap-sprockets";
 
 // Import cerulean variables
-@import "bootswatch/flatly/variables";
+@import "bootswatch/simplex/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
 
 // And finally bootswatch style itself
-@import "bootswatch/flatly/bootswatch";
+@import "bootswatch/simplex/bootswatch";
 
 // Whatever application styles you have go last
 

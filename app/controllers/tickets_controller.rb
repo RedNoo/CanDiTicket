@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_action :set_tickets, only:[:edit, :update, :show, :destroy]
 
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.paginate(page: params[:page], per_page: 5)
   end
 
 
