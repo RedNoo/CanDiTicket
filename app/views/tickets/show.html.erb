@@ -1,14 +1,17 @@
 <div class="page_container">
-<h1>Selected Ticket</h1>
-<p>
-Title : <%=@ticket.subject%>
-</p>
-<p>
-Description : <%=@ticket.description%>
-</p>
-<p>
-  <%=link_to @ticket.member.email, member_path(@ticket.member)%>
-</p>
-<%=link_to "Edit", edit_ticket_path(@ticket) %> |
-<%=link_to "Back to ticket list", tickets_path %>
+  <h1>Selected Ticket</h1>
+  <div class="well well">
+      <h2> <%=@ticket.subject%></h2>
+      <hr />
+      <p>
+        Description : <%=@ticket.description%>
+      </p>
+      <p>
+        <%=link_to @ticket.member.email, member_path(@ticket.member)%>
+      </p>
+      <hr/>
+      <%=link_to "Edit", edit_ticket_path(@ticket),class:"btn btn-default" %>
+      <%=link_to "Delete", ticket_path(@ticket), method: :delete, data: {confirm: "are you sure"} ,class:"btn btn-danger"%>
+      <%=link_to "Back to ticket list", tickets_path %>
+    </div>
 </div>

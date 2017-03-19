@@ -14,12 +14,12 @@
   <tr>
     <td>
       <%=ticket.subject%>
-    <small>Created by:  <%=ticket.member.email if ticket.member%>, <%= time_ago_in_words(ticket_createdat)%> </small>
+    <small>Created by:  <%=ticket.member.email if ticket.member%>, <%= time_ago_in_words(ticket.created_at)%> </small>
     </td>
     <td>
-      <%=link_to "Edit", edit_ticket_path(ticket) %>
-      <%=link_to "Show", ticket_path(ticket) %>
-        <%=link_to "Delete", ticket_path(ticket), method: :delete, data: {confirm: "are you sure"} %>
+      <%=link_to "Edit", edit_ticket_path(ticket),class:"btn btn-default" %>
+      <%=link_to "Show", ticket_path(ticket),class:"btn btn-info" %> 
+  <%=link_to "Delete", ticket_path(ticket), method: :delete, data: {confirm: "are you sure"} ,class:"btn btn-danger"%>
     </td>
 
   </tr>

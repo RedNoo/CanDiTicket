@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="col-xs-10">
-      <%= f.text_area :description, class: "form-control", placeholder: "description", autofocus: true %>
+      <%= f.text_area :description, class: "form-control", placeholder: "description", autofocus: true, rows: "10"  %>
     </div>
 
   </div>
@@ -34,7 +34,7 @@
 
 <% end %>
 <div class="text-right">
-<%=link_to "Back to Department list", tickets_path %>
+<%=link_to "Back to Tickets list", tickets_path %>
 </div>
 </div>
 </div>

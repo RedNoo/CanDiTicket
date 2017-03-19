@@ -1,9 +1,10 @@
 <div class="page_container">
-<h1>All tickets</h2>
-  <div class="col-lg-6 col-md-6">
+<h1>Your tickets</h2>
+  <div class="col-lg-10 col-md-10">
   <p>
-  <%=link_to "Create new ticket", new_ticket_path %>
+  <%=link_to "Create new ticket", new_ticket_path ,class:"btn btn-success"%>
 </p>
+<%  if @tickets  %>
 <p>
 <%= will_paginate%>
 </p>
@@ -11,5 +12,6 @@
 <p>
 <%= will_paginate%>
 </p>
-  <div>
+<% end %>
+  </div>
 </div>
