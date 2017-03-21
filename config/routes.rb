@@ -19,12 +19,20 @@ Rails.application.routes.draw do
   resources :sla_plans
   resources :statuses
   resources :tickets
+  resources :users
 
   get 'signup' => 'members#new'
 
   get 'login', to: 'sessions#new'
   post "login", to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  get 'loginuser', to: 'user_sessions#new'
+  post "loginuser", to: 'user_sessions#create'
+  delete 'logoutuser', to: 'user_sessions#destroy'
+
+
+
 
   # Example resource route with options:
   #   resources :products do

@@ -18,8 +18,8 @@ class MembersController < ApplicationController
     #render plain: params[:member].inspect
     @member = Member.new(member_params)
     if @member.save
-
-      flash[:notice] = "Member was successfully created."
+      session[:member_id] = @member.id
+      flash[:success] = "Welcome toda CanDiTicket"
       redirect_to member_path(@member)
     else
       render :new

@@ -1,0 +1,14 @@
+<div class="page_container">
+<h1>Selected User</h1>
+<p>
+  <%= gravatar_for @user, size: 80%>
+</p>
+<p>
+Email : <%=@user.email%>
+</p>
+
+<%=link_to "Edit", edit_user_path(@user) %> |
+<%=link_to "Back to user list", users_path %>
+
+
+</div>
