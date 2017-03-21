@@ -1,0 +1,14 @@
+<div class="page_container">
+  <h1>All tickets</h2>
+  <div class="col-lg-10 col-md-10">
+      <%  if @tickets  %>
+        <p>
+          <%= will_paginate%>
+        </p>
+          <%= render 'ticket_for_user', obj: @tickets %>
+        <p>
+          <%= will_paginate%>
+        </p>
+      <% end %>
+  </div>
+</div>

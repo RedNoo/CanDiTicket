@@ -1,9 +1,9 @@
 class TicketsController < ApplicationController
 
-  before_action :set_tickets, only:[:edit, :update, :show, :destroy]
-  before_action :require_member#, except: [:new]
-  before_action :require_same_member, except: [:index,:new, :create]#, only: [:edit, :update, :destroy]
-
+  before_action :set_tickets, only:[:edit, :update, :show, :destroy,:showticket_for_user]
+  before_action :require_member, except: [:allticket_for_user,:showticket_for_user]
+  before_action :require_same_member, except: [:index,:new, :create,:allticket_for_user,:showticket_for_user]#, only: [:edit, :update, :destroy]
+  before_action :require_user, only:[:allticket_for_user,:showticket_for_user]
 
   def index
     @tickets = current_member.tickets.paginate(page: params[:page], per_page: 5) if current_member.tickets
@@ -47,11 +47,18 @@ class TicketsController < ApplicationController
     end
   end
 
+  def allticket_for_user
+    @tickets = Ticket.paginate(page: params[:page], per_page: 5)
+  end
+
+  def showticket_for_user
+  end
 
   private
   def set_tickets
      @ticket = Ticket.find(params[:id])
   end
+
   def ticket_params
     params.require(:ticket).permit(:subject,:description )
   end

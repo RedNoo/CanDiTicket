@@ -31,6 +31,10 @@ Rails.application.routes.draw do
   post "loginuser", to: 'user_sessions#create'
   delete 'logoutuser', to: 'user_sessions#destroy'
 
+  get 'allticket-for-user', to: 'tickets#allticket_for_user'
+  #get 'showticket_for_user/:id', to: 'tickets#showticket_for_user'
+  get 'showticket_for_user/:id' => 'tickets#showticket_for_user', as: :showticket_for_user
+
 
 
 

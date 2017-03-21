@@ -1,0 +1,14 @@
+<div class="page_container">
+  <div class="well well">
+      <h2> <%=@ticket.subject%></h2>
+      <hr />
+      <p>
+        Description : <%=@ticket.description%>
+      </p>
+      <p>
+        <%=link_to @ticket.member.email, member_path(@ticket.member)%>
+      </p>
+      <hr/>
+      <%=link_to "Back to ticket list", tickets_path %>
+    </div>
+</div>
