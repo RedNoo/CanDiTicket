@@ -1,9 +1,9 @@
 class TicketsController < ApplicationController
 
   before_action :set_tickets, only:[:edit, :update, :show, :destroy,:showticket_for_user]
-  before_action :require_member, except: [:allticket_for_user,:showticket_for_user]
-  before_action :require_same_member, except: [:index,:new, :create,:allticket_for_user,:showticket_for_user]#, only: [:edit, :update, :destroy]
-  before_action :require_user, only:[:allticket_for_user,:showticket_for_user]
+  before_action :require_member, except: [:allticket_for_user,:showticket_for_user,:update_tickets_user]
+  before_action :require_same_member, except: [:index,:new, :create,:allticket_for_user,:showticket_for_user,:update_tickets_user]#, only: [:edit, :update, :destroy]
+  before_action :require_user, only:[:allticket_for_user,:showticket_for_user,:update_tickets_user]
 
   def index
     @tickets = current_member.tickets.paginate(page: params[:page], per_page: 5) if current_member.tickets
@@ -51,7 +51,19 @@ class TicketsController < ApplicationController
     @tickets = Ticket.paginate(page: params[:page], per_page: 5)
   end
 
+
+  def update_tickets_user
+      @ticket =Ticket.find(params[:ticket][:id])
+      if @ticket.update(user_id: params[:ticket][:user_id])
+        flash[:success] = "Ticket was successfully updated."
+        redirect_to showticket_for_user_path(@ticket)
+      else
+        render :showticket_for_user
+      end
+  end
+
   def showticket_for_user
+    @users = User.all
   end
 
   private

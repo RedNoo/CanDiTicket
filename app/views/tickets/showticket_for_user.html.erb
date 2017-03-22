@@ -8,6 +8,14 @@
       <p>
         <%=link_to @ticket.member.email, member_path(@ticket.member)%>
       </p>
+      <p>
+        <%= form_for(:ticket, :html => {class: "form-horizontal", role: "form"}, url: showticket_for_user_path) do |f| %>
+          <% options = options_from_collection_for_select(@users, 'id', 'full_name') %>
+          <%= f.select :user_id,  options %>
+          <%= f.hidden_field :id, :value => @ticket.id %>
+          <%= f.submit "Update User", class: "btn btn-default"%>
+        <%end%>
+      </p>
       <hr/>
       <%=link_to "Back to ticket list", tickets_path %>
     </div>

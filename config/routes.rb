@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get 'allticket-for-user', to: 'tickets#allticket_for_user'
   #get 'showticket_for_user/:id', to: 'tickets#showticket_for_user'
   get 'showticket_for_user/:id' => 'tickets#showticket_for_user', as: :showticket_for_user
+  post "showticket_for_user/:id", to: 'tickets#update_tickets_user'
 
 
 
