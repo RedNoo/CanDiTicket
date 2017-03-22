@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :set_user, only:[:edit, :update, :show, :destroy]
+  before_action :require_adminuser, only:[:new,:create, :destroy]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 2)
@@ -51,5 +52,12 @@ end
   end
   def user_params
     params.require(:user).permit(:email,:password, :full_name)
+  end
+
+  def require_adminuser
+    if !current_user.admin?
+      flash[:danger] = "You need admin permissions"
+      redirect_to root_path
+    end
   end
 end

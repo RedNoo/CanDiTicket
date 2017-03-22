@@ -2,10 +2,10 @@ class MembersController < ApplicationController
 
   before_action :set_member, only:[:edit, :update, :show, :destroy]
 
+
   def index
     @members = Member.paginate(page: params[:page], per_page: 2)
   end
-
 
   def new
     @member = Member.new
@@ -19,7 +19,7 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
     if @member.save
       session[:member_id] = @member.id
-      flash[:success] = "Welcome toda CanDiTicket"
+      flash[:success] = "Welcome to the CanDiTicket"
       redirect_to member_path(@member)
     else
       render :new
@@ -52,4 +52,6 @@ end
   def member_params
     params.require(:member).permit(:email,:password)
   end
+
+
 end
